@@ -16,7 +16,7 @@ namespace dbEntity
 
         public override string ToString()
         {
-            return "Produto: " + Nome + ", Preco: " + PrecoU + ", Categoria: " + Categoria; 
+            return "Produto: " + Nome + ", Preco: " + PrecoU + ", Categoria: " + Categoria + ", Unidade: " + Unidade; 
         }
 
         public Produto(string nome, string categoria, double preco, string unidade = "")
