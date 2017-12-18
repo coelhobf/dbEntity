@@ -12,6 +12,7 @@ namespace dbEntity
         public string Nome { get; internal set; }
         public string Categoria { get; internal set; }
         public double Preco { get; internal set; }
+        //public int Unidade { get; set; }
 
         public override string ToString()
         {
