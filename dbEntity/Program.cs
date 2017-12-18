@@ -50,7 +50,7 @@ namespace dbEntity
                 Console.WriteLine("foram encontrados {0} produto(s)", produtos.Count);
                 foreach (var p in produtos)
                 {
-                    Console.WriteLine(p.Nome);
+                    Console.WriteLine(p);
                 }
             }
         }
@@ -59,20 +59,9 @@ namespace dbEntity
         {
             using (var repo = new ProdutoDAO())
             {
-                Produto p1 = new Produto();
-                p1.Nome = "Harry Potter e a Ordem da Fênix";
-                p1.Categoria = "Livros";
-                p1.Preco = 19.89;
-
-                Produto p2 = new Produto();
-                p2.Nome = "Senhor dos Anéis 1";
-                p2.Categoria = "Livros";
-                p2.Preco = 19.89;
-
-                Produto p3 = new Produto();
-                p3.Nome = "O Monge e o Executivo";
-                p3.Categoria = "Livros";
-                p3.Preco = 19.89;
+                Produto p1 = new Produto("Harry Potter e a Ordem da Fênix", "Livros", 19.89);
+                Produto p2 = new Produto("Senhor dos Anéis 1", "Livros", 19.89);
+                Produto p3 = new Produto("O Monge e o Executivo", "Livros", 19.89);
 
                 repo.Adicionar(p1);
                 repo.Adicionar(p2);

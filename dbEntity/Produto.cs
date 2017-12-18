@@ -17,6 +17,13 @@ namespace dbEntity
         {
             return "Produto: " + Nome + ", Preco: " + Preco + ", Categoria: " + Categoria; 
         }
+
+        public Produto(string nome, string categoria, double preco)
+        {
+            this.Nome = nome;
+            this.Categoria = categoria;
+            this.Preco = preco;
+        }
     }
 }
 
