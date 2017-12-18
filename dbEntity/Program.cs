@@ -11,7 +11,22 @@ namespace dbEntity
         static void Main(string[] args)
         {
             //GravarUsandoEntity();
-            RecuperarUsandoEntity();
+            //RecuperarUsandoEntity();
+            ExluirUsandoEntity();
+        }
+
+        private static void ExluirUsandoEntity()
+        {
+            using (var contexto = new LojaContext())
+            {
+                IList<Produto> produtos = contexto.Produtos.ToList();
+                foreach(var item in produtos)
+                {
+                    contexto.Produtos.Remove(item);
+                }
+
+                contexto.SaveChanges();
+            }
         }
 
         private static void RecuperarUsandoEntity()
