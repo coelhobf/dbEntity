@@ -10,54 +10,54 @@ namespace dbEntity
     {
         static void Main(string[] args)
         {
-            //GravarUsandoEntity();
-            //RecuperarUsandoEntity();
-            //ExluirUsandoEntity();
-            //AtualizaUsandoEntity();
+            ExluirUsandoEntity();
+            GravarUsandoEntity();
+            RecuperarUsandoEntity();
+            AtualizaUsandoEntity();
+            RecuperarUsandoEntity();
+            ExluirUsandoEntity();
+            RecuperarUsandoEntity();
         }
 
         private static void AtualizaUsandoEntity()
         {
-            using (var contexto = new LojaContext())
+            using (var repo = new ProdutoDAO())
             {
-                IList<Produto> produtos = contexto.Produtos.ToList();
-                var p = produtos.First();
-                p.Nome = "Cassino Royalle - Edit";
-                contexto.Produtos.Update(p);
-                contexto.SaveChanges();
+                IList<Produto> produtos = repo.Produto();
+                Produto p = produtos.First();
+                p.Nome = "edit";
+                repo.Atualizar(p);
             }
         }
 
         private static void ExluirUsandoEntity()
         {
-            using (var contexto = new LojaContext())
+            using (var repo = new ProdutoDAO())
             {
-                IList<Produto> produtos = contexto.Produtos.ToList();
-                foreach(var item in produtos)
+                IList<Produto> produtos = repo.Produto();
+                foreach(var p in produtos)
                 {
-                    contexto.Produtos.Remove(item);
+                    repo.Remover(p);
                 }
-
-                contexto.SaveChanges();
             }
         }
 
         private static void RecuperarUsandoEntity()
         {
-            using (var contexto = new LojaContext())
+            using (var repo = new ProdutoDAO())
             {
-                IList<Produto> produtos = contexto.Produtos.ToList();
+                IList<Produto> produtos = repo.Produto();
                 Console.WriteLine("foram encontrados {0} produto(s)", produtos.Count);
-                foreach (var item in produtos)
+                foreach (var p in produtos)
                 {
-                    Console.WriteLine(item.Nome);
+                    Console.WriteLine(p.Nome);
                 }
             }
         }
 
         private static void GravarUsandoEntity()
         {
-            using (var contexto = new LojaContext())
+            using (var repo = new ProdutoDAO())
             {
                 Produto p1 = new Produto();
                 p1.Nome = "Harry Potter e a Ordem da Fênix";
@@ -74,10 +74,9 @@ namespace dbEntity
                 p3.Categoria = "Livros";
                 p3.Preco = 19.89;
 
-                contexto.Produtos.Add(p1);
-                contexto.Produtos.Add(p2);
-                contexto.Produtos.Add(p3);
-                contexto.SaveChanges();
+                repo.Adicionar(p1);
+                repo.Adicionar(p2);
+                repo.Adicionar(p3);
             }
         }
     }
