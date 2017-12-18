@@ -12,7 +12,20 @@ namespace dbEntity
         {
             //GravarUsandoEntity();
             //RecuperarUsandoEntity();
-            ExluirUsandoEntity();
+            //ExluirUsandoEntity();
+            //AtualizaUsandoEntity();
+        }
+
+        private static void AtualizaUsandoEntity()
+        {
+            using (var contexto = new LojaContext())
+            {
+                IList<Produto> produtos = contexto.Produtos.ToList();
+                var p = produtos.First();
+                p.Nome = "Cassino Royalle - Edit";
+                contexto.Produtos.Update(p);
+                contexto.SaveChanges();
+            }
         }
 
         private static void ExluirUsandoEntity()
@@ -34,7 +47,8 @@ namespace dbEntity
             using (var contexto = new LojaContext())
             {
                 IList<Produto> produtos = contexto.Produtos.ToList();
-                foreach(var item in produtos)
+                Console.WriteLine("foram encontrados {0} produto(s)", produtos.Count);
+                foreach (var item in produtos)
                 {
                     Console.WriteLine(item.Nome);
                 }
