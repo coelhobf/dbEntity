@@ -11,19 +11,20 @@ namespace dbEntity
         public int Id { get; internal set; }
         public string Nome { get; internal set; }
         public string Categoria { get; internal set; }
-        public double Preco { get; internal set; }
-        //public int Unidade { get; set; }
+        public double PrecoU { get; internal set; }
+        public string Unidade { get; set; }
 
         public override string ToString()
         {
-            return "Produto: " + Nome + ", Preco: " + Preco + ", Categoria: " + Categoria; 
+            return "Produto: " + Nome + ", Preco: " + PrecoU + ", Categoria: " + Categoria; 
         }
 
-        public Produto(string nome, string categoria, double preco)
+        public Produto(string nome, string categoria, double preco, string unidade = "")
         {
             this.Nome = nome;
             this.Categoria = categoria;
-            this.Preco = preco;
+            this.PrecoU = preco;
+            this.Unidade = unidade;
         }
     }
 }

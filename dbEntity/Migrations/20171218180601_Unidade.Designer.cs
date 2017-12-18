@@ -8,9 +8,10 @@ using dbEntity;
 namespace dbEntity.Migrations
 {
     [DbContext(typeof(LojaContext))]
-    partial class LojaContextModelSnapshot : ModelSnapshot
+    [Migration("20171218180601_Unidade")]
+    partial class Unidade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -27,7 +28,7 @@ namespace dbEntity.Migrations
 
                     b.Property<double>("PrecoU");
 
-                    b.Property<string>("Unidade");
+                    b.Property<int>("Unidade");
 
                     b.HasKey("Id");
 

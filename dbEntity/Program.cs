@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,10 @@ namespace dbEntity
     {
         static void Main(string[] args)
         {
-            
+            using (var contexto = new LojaContext())
+            {
+                contexto.Database.Migrate();
+            }
         }
     }
 }
