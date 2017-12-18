@@ -8,16 +8,10 @@ namespace dbEntity
 {
    public class Promocao
     {
-        public int Id { get; internal set; }
-        public int Nome { get; internal set; }
-        public int Categoria { get; internal set; }
-        public int PrecoUnitario { get; internal set; }
-        public string Unidade { get; set; }
-        public IList<Promocao> Promocoes { get; set; }
-
-        public override string ToString()
-        {
-            return $"Produto: {this.Id}, {this.Nome}, {this.Categoria}, {this.PrecoUnitario}";
-        }
+        public int Id { get; set; }
+        public string Descricao { get; internal set; }
+        public DateTime DataInicio { get; internal set; }
+        public DateTime DataTermino { get; internal set; }
+        public IList<PromocaoProduto> Produtos { get; internal set; }
     }
 }

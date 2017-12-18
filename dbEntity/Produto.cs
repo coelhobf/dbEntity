@@ -13,17 +13,18 @@ namespace dbEntity
         public string Categoria { get; internal set; }
         public double PrecoU { get; internal set; }
         public string Unidade { get; set; }
+        public IList<Promocao> Promocoes { get; set; }
 
         public override string ToString()
         {
-            return "Produto: " + Nome + ", Preco: " + PrecoU + ", Categoria: " + Categoria + ", Unidade: " + Unidade; 
+            return $"Produto: {this.Id}, {this.Nome}, {this.Categoria}, {this.PrecoU}";
         }
 
         public Produto(string nome, string categoria, double preco, string unidade = "")
         {
-            this.Nome = nome;
-            this.Categoria = categoria;
-            this.PrecoU = preco;
+            Nome = nome;
+            Categoria = categoria;
+            PrecoU = preco;
             this.Unidade = unidade;
         }
     }
