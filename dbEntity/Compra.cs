@@ -2,16 +2,17 @@
 {
     internal class Compra
     {
-        private Produto produto;
-        private int quant;
-        private double precoT;
+        public int Id { get; set; }
+        public int Quant { get; internal set; }
+        public int ProdutoId { get; set; }
+        public Produto Produto { get; internal set; }
+        public double PrecoT { get; internal set; }
 
         public Compra(Produto produto, int quant)
         {
-            this.produto = produto;
-            this.quant = quant;
-
-            this.precoT = produto.PrecoU * quant;
+            this.Produto = produto;
+            this.Quant = quant;
+            this.PrecoT = produto.PrecoU * quant;
         }
     }
 }

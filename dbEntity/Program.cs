@@ -17,7 +17,6 @@ namespace dbEntity
             }
 
             var paoFrances = new Produto("Pão Francês", "Padaria", 0.40, "Unidade");
-
             var compra = new Compra(paoFrances, 6);
         }
     }
