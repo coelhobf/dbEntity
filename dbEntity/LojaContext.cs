@@ -13,5 +13,13 @@ namespace dbEntity
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb; Database=LojaDB; Trusted_Connection=true;");
         }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<PromocaoProduto>()
+                .HasKey(pp => new { pp.IdProduto, pp.IdPromocao });
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
