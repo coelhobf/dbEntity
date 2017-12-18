@@ -52,41 +52,12 @@ namespace dbEntity.Migrations
                     b.ToTable("Produtos");
                 });
 
-            modelBuilder.Entity("dbEntity.Promocao", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Categoria");
-
-                    b.Property<int>("Nome");
-
-                    b.Property<int>("PrecoUnitario");
-
-                    b.Property<int?>("PromocaoId");
-
-                    b.Property<string>("Unidade");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PromocaoId");
-
-                    b.ToTable("Promocoes");
-                });
-
             modelBuilder.Entity("dbEntity.Compra", b =>
                 {
                     b.HasOne("dbEntity.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("dbEntity.Promocao", b =>
-                {
-                    b.HasOne("dbEntity.Promocao")
-                        .WithMany("Promocoes")
-                        .HasForeignKey("PromocaoId");
                 });
         }
     }
