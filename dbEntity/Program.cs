@@ -10,7 +10,20 @@ namespace dbEntity
     {
         static void Main(string[] args)
         {
+            GravarUsandoEntity();
+        }
 
+        private static void GravarUsandoEntity()
+        {
+            Produto p = new Produto();
+            p.Nome = "Livro x";
+            p.Categoria = "Livros";
+            p.Preco = 10;
+
+            using (var contexto = new LojaContext())
+            {
+                contexto.Adicionar(p);
+            }
         }
     }
 }
