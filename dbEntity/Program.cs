@@ -10,7 +10,20 @@ namespace dbEntity
     {
         static void Main(string[] args)
         {
-            GravarUsandoEntity();
+            //GravarUsandoEntity();
+            RecuperarUsandoEntity();
+        }
+
+        private static void RecuperarUsandoEntity()
+        {
+            using (var contexto = new LojaContext())
+            {
+                IList<Produto> produtos = contexto.Produtos.ToList();
+                foreach(var item in produtos)
+                {
+                    Console.WriteLine(item.Nome);
+                }
+            }
         }
 
         private static void GravarUsandoEntity()
