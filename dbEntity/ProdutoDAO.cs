@@ -31,7 +31,7 @@ namespace dbEntity
             contexto.Dispose();
         }
 
-        public IList<Produto> Produto()
+        public IList<Produto> Produtos()
         {
             return contexto.Produtos.ToList();
         }

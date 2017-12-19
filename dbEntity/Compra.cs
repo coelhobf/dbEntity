@@ -1,6 +1,6 @@
 ﻿namespace dbEntity
 {
-    internal class Compra
+    public class Compra
     {
         public int Id { get; set; }
         public int Quant { get; internal set; }
@@ -13,6 +13,11 @@
             this.Produto = produto;
             this.Quant = quant;
             this.PrecoT = produto.PrecoU * quant;
+        }
+
+        public override string ToString()
+        {
+            return $"Compra de {this.Quant} {this.Produto.Unidade} do produto {this.Produto.Nome} a R$ {this.PrecoT}";
         }
     }
 }

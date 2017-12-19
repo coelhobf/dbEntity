@@ -8,8 +8,8 @@ namespace dbEntity
 {
     public class PromocaoProduto
     {
-        public int IdProduto { get; set; }
-        public int IdPromocao { get; set; }
+        public int ProdutoId { get; set; }
+        public int PromocaoId { get; set; }
         public Produto Produto { get; set; }
         public Promocao Promocao { get; set; }
     }
