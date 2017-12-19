@@ -17,5 +17,11 @@ namespace dbEntity
             this.Nome = nome;
             this.Endereco = endereco;
         }
+
+        public Cliente(string nome, int numero, string logra, string comple, string bairro, string cidade)
+        {
+            this.Nome = nome;
+            this.Endereco = new Endereco(numero, logra, comple, bairro, cidade);
+        }
     }
 }

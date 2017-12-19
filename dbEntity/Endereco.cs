@@ -7,6 +7,7 @@
         public string Complemento { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
+        public Cliente Cliente { get; set; }
         public Endereco() { }
         public Endereco(int numero, string logra, string comple, string bairro, string cidade)
         {

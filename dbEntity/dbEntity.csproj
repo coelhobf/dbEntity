@@ -149,6 +149,10 @@
     <Compile Include="Migrations\20171219111752_PromocaoProduto.designer.cs">
       <DependentUpon>20171219111752_PromocaoProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171219115027_Cliente-Endereco.cs" />
+    <Compile Include="Migrations\20171219115027_Cliente-Endereco.designer.cs">
+      <DependentUpon>20171219115027_Cliente-Endereco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\LojaContextModelSnapshot.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="IProdutoDAO.cs" />
