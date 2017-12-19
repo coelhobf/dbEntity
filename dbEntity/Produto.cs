@@ -27,9 +27,6 @@ namespace dbEntity
             PrecoU = preco;
             this.Unidade = unidade;
         }
-
-        public Produto() { }
-
     }
 }
 
