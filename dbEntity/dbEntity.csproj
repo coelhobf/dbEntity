@@ -125,7 +125,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cliente.cs" />
     <Compile Include="Compra.cs" />
+    <Compile Include="Endereco.cs" />
     <Compile Include="LojaContext.cs" />
     <Compile Include="Migrations\20171218180348_Inicial.cs" />
     <Compile Include="Migrations\20171218180348_Inicial.designer.cs">
