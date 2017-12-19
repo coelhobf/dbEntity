@@ -13,7 +13,7 @@ namespace dbEntity
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb; Database=LojaDB; Trusted_Connection=true;");
         }
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder

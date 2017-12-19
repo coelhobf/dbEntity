@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +18,30 @@ namespace dbEntity
             {
                 contexto.Database.Migrate();
             }
+            var p1 = new Produto() { Nome = "Suco de Laranja", Categoria = "Bebidas", PrecoU = 8.79, Unidade = "Litros" };
+            var p2 = new Produto() { Nome = "Café", Categoria = "Bebidas", PrecoU = 12.45, Unidade = "Gramas" };
+            var p3 = new Produto() { Nome = "Macarrão", Categoria = "Alimentos", PrecoU = 4.23, Unidade = "Gramas" };
 
-            var paoFrances = new Produto("Pão Francês", "Padaria", 0.40, "Unidade");
-            var compra = new Compra(paoFrances, 6);
+            var promocaoDePascoa = new Promocao();
+            promocaoDePascoa.Descricao = "Páscoa Feliz";
+            promocaoDePascoa.DataInicio = DateTime.Now;
+            promocaoDePascoa.DataTermino = DateTime.Now.AddMonths(3);
+
+            promocaoDePascoa.IncluiProduto(p1);
+            promocaoDePascoa.IncluiProduto(p2);
+            promocaoDePascoa.IncluiProduto(p3);
 
             using (var contexto = new LojaContext())
             {
-                contexto.Compras.Add(compra);
+                var serviceProvider = contexto.GetInfrastructure<IServiceProvider>();
+                var loggerFactory = serviceProvider.GetService<ILoggerFactory>();
+                loggerFactory.AddProvider(SqlLoggerProvider.Create());
+
+                contexto.Promocoes.Add(promocaoDePascoa);
+                //var promocao = contexto.Promocoes.Find(3);
+                //contexto.Promocoes.Remove(promocao);
                 contexto.SaveChanges();
+
             }
         }
     }
